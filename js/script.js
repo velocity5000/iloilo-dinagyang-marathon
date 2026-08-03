@@ -87,4 +87,63 @@ setInterval(updateCountdown, 1000);
 
 lucide.createIcons();
 
-lucide.createIcons();
+// ==========================
+// RACE DAY COUNTDOWN BANNER
+// ==========================
+
+const raceDate = new Date("2027-01-17T00:00:00+08:00").getTime();
+
+const bannerDays = document.getElementById("banner-days");
+const bannerHours = document.getElementById("banner-hours");
+const bannerMinutes = document.getElementById("banner-minutes");
+const bannerSeconds = document.getElementById("banner-seconds");
+
+function updateRaceCountdown() {
+
+    if (!bannerDays) return;
+
+    const now = new Date().getTime();
+
+    const difference = raceDate - now;
+
+    if (difference <= 0) {
+
+        bannerDays.textContent = "000";
+        bannerHours.textContent = "00";
+        bannerMinutes.textContent = "00";
+        bannerSeconds.textContent = "00";
+
+        document.querySelector(".countdown-banner h2").textContent =
+            "The Race Has Begun!";
+
+        return;
+
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (difference % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (difference % (1000 * 60)) /
+        1000
+    );
+
+    bannerDays.textContent = String(days).padStart(3, "0");
+    bannerHours.textContent = String(hours).padStart(2, "0");
+    bannerMinutes.textContent = String(minutes).padStart(2, "0");
+    bannerSeconds.textContent = String(seconds).padStart(2, "0");
+
+}
+
+updateRaceCountdown();
+
+setInterval(updateRaceCountdown, 1000);
