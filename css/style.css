@@ -1,0 +1,1096 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: 'Manrope', sans-serif;
+    background: #111;
+    color: #fff;
+    overflow-x: hidden;
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    z-index: 1000;
+
+    padding: 20px 8%;
+
+    background: transparent;
+
+    transition:
+        background .35s ease,
+        backdrop-filter .35s ease,
+        padding .35s ease;
+
+}
+
+.navbar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo {
+
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+.logo img {
+
+    height: 82px;
+    width: auto;
+    display: block;
+
+}
+
+.nav-links {
+
+    list-style: none;
+
+    display: flex;
+    gap: 42px;
+
+}
+
+.nav-links a {
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+
+    color: #e6322b;
+
+}
+
+.register-btn {
+
+    background: #e6322b;
+
+    color: white;
+
+    padding: 14px 30px;
+
+    border-radius: 40px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: .3s;
+
+}
+
+.register-btn:hover {
+
+    background: #ff433b;
+
+}
+
+.hamburger {
+
+    display: none;
+
+}
+
+.header.scrolled {
+
+    background: rgba(10, 10, 10, .82);
+
+    backdrop-filter: blur(16px);
+
+    -webkit-backdrop-filter: blur(16px);
+
+    padding: 14px 8%;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+}
+
+/* Slides */
+
+.hero-slider {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.slide {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0;
+
+    transition: opacity 1.5s ease;
+
+}
+
+.slide.active {
+
+    opacity: 1;
+
+}
+
+/* Overlay */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, .48),
+            rgba(0, 0, 0, .48));
+
+}
+
+/* Hero Content */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+    padding-top: 70px;
+
+}
+
+.campaign-logo {
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.event-date {
+
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: 300;
+    text-transform: uppercase;
+    opacity: .95;
+
+    margin-bottom: 28px;
+
+}
+
+.hero h1 {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 112px;
+
+    letter-spacing: 4px;
+
+    line-height: 1;
+
+}
+
+.hero h2 {
+
+    margin-top: 16px;
+    font-size: 34px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #fff;
+
+}
+
+.countdown-box {
+
+    margin-top: 55px;
+
+}
+
+.countdown-box p {
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+    opacity: .85;
+    letter-spacing: 1px;
+
+}
+
+#countdown {
+
+    font-size: 46px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+.hero-btn {
+
+    margin-top: 45px;
+
+    display: inline-block;
+
+    background: #e6322b;
+
+    color: white;
+
+    padding: 18px 46px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    transition: .3s;
+
+}
+
+.hero-btn:hover {
+
+    background: #ff433b;
+
+    transform: translateY(-3px);
+
+}
+
+.scroll-down {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    opacity: .8;
+
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+
+    background: #111;
+
+    padding: 120px 8%;
+
+}
+
+.about-container {
+
+    max-width: 1300px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+}
+
+.about-image img {
+
+    width: 100%;
+
+    border-radius: 22px;
+
+    display: block;
+
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .45);
+
+}
+
+.section-label{
+    color:#ff4b3e;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.about-content h2 {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 68px;
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+
+}
+
+.about-content p {
+
+    color: #cfcfcf;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    margin-bottom: 24px;
+
+}
+
+.about-highlights {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+
+    margin-top: 35px;
+
+}
+
+.highlight {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 22px;
+
+    background: #181818;
+
+    border-left: 4px solid #e6322b;
+
+    border-radius: 12px;
+
+    font-weight: 600;
+
+}
+
+.highlight i {
+
+    width: 24px;
+
+    height: 24px;
+
+    color: #e6322b;
+
+    flex-shrink: 0;
+
+}
+
+.highlight span {
+
+    font-size: 18px;
+
+}
+
+/* =========================
+   CHOOSE YOUR CHALLENGE
+========================= */
+
+.challenge {
+
+    background: #181818;
+
+    padding: 120px 8%;
+
+}
+
+.challenge-header{
+    max-width:980px;
+    margin:0 auto 80px;
+    text-align:center;
+}
+
+.challenge-header h2{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:92px;
+    line-height:.95;
+    margin-bottom:24px;
+}
+
+.challenge-intro{
+    max-width:760px;
+    margin:0 auto;
+    color:#bdbdbd;
+    font-size:21px;
+    line-height:1.9;
+}
+
+.challenge-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px;
+
+    max-width: 1300px;
+
+    margin: auto;
+
+}
+
+.challenge-card {
+
+    background: #111;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    border-radius: 22px;
+
+    padding: 40px;
+
+    transition: .35s;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.challenge-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: #e6322b;
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .45);
+
+}
+
+.challenge-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 5px;
+
+    background: #e6322b;
+
+    transform: scaleX(0);
+
+    transition: .35s;
+
+}
+
+.challenge-card:hover::before {
+
+    transform: scaleX(1);
+
+}
+
+.distance {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 92px;
+
+    color: #e6322b;
+
+    line-height: 1;
+
+    margin-bottom: 10px;
+
+}
+
+.challenge-card h3 {
+
+    font-size: 28px;
+
+    margin-bottom: 18px;
+
+}
+
+.challenge-card p {
+
+    color: #bfbfbf;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+
+}
+
+.challenge-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+}
+
+.challenge-info span {
+
+    color: #9d9d9d;
+
+}
+
+.challenge-info strong {
+
+    font-weight: 700;
+
+}
+
+.price {
+
+    margin-top: 30px;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    color: #fff;
+
+}
+
+.price small {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: #e6322b;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+}
+
+.card-btn {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: .3s;
+
+}
+
+.card-btn:hover {
+
+    color: #e6322b;
+
+}
+
+.featured {
+
+    background: linear-gradient(135deg,
+            #181818,
+            #111);
+
+}
+
+/* =========================
+   REGISTRATION FEES
+========================= */
+
+.pricing{
+
+    background:#111;
+    padding:120px 8%;
+
+}
+
+.pricing-header{
+
+    max-width:760px;
+    margin:0 auto 60px;
+    text-align:center;
+
+}
+
+.pricing-header h2{
+
+    font-family:'Bebas Neue',sans-serif;
+    font-size:72px;
+    line-height:1;
+    margin-bottom:18px;
+
+}
+
+.pricing-subtitle{
+
+    color:#bfbfbf;
+    font-size:20px;
+    line-height:1.8;
+
+}
+
+.pricing-table{
+
+    max-width:1100px;
+    margin:auto;
+
+    border-radius:20px;
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.pricing-row{
+
+    display:grid;
+    grid-template-columns:
+    1fr
+    1fr
+    1fr;
+
+    align-items:center;
+
+    background:#171717;
+
+}
+
+.pricing-row:nth-child(even){
+
+    background:#111;
+
+}
+
+.pricing-row div{
+
+    padding:26px 34px;
+    font-size:20px;
+
+}
+
+.pricing-row div:first-child{
+
+    font-weight:700;
+
+}
+
+.pricing-head{
+
+    background:#e6322b;
+
+}
+
+.pricing-head div{
+
+    color:white;
+    font-size:22px;
+    font-weight:700;
+
+}
+
+.pricing-note{
+
+    max-width:900px;
+
+    margin:45px auto 0;
+
+    text-align:center;
+
+    color:#bfbfbf;
+
+    line-height:1.9;
+
+    font-size:18px;
+
+}
+
+.pricing-note strong{
+
+    color:white;
+
+}
+
+/* =========================
+   RACE INCLUSIONS
+========================= */
+
+.inclusions{
+
+    background:#181818;
+    padding:120px 8%;
+
+}
+
+.inclusion-grid{
+
+    max-width:1300px;
+
+    margin:70px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+.inclusion-card{
+
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:40px 35px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.inclusion-icon{
+
+    width:68px;
+    height:68px;
+
+    margin:0 auto 28px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:rgba(230,50,43,.08);
+
+    transition:
+        background .35s ease,
+        transform .35s ease;
+
+}
+
+.inclusion-icon i{
+
+    width:30px;
+    height:30px;
+    stroke-width:2;
+
+    color:#e6322b;
+
+}
+
+.inclusion-card:hover .inclusion-icon{
+
+    transform:scale(1.08);
+
+    background:rgba(230,50,43,.18);
+
+}
+
+
+.inclusion-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#e6322b;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45),
+        0 0 20px rgba(230,50,43,.15);
+
+}
+
+.inclusion-card .icon{
+
+    font-size:54px;
+
+    margin-bottom:25px;
+
+}
+
+.inclusion-card{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+
+    min-height:255px;
+
+}
+
+.inclusion-card h3{
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.inclusion-card p{
+
+    color:#bfbfbf;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+
+.icon{
+
+    width:72px;
+    height:72px;
+
+    margin:0 auto 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(230,50,43,.08);
+
+}
+
+.icon svg{
+
+    width:34px;
+    height:34px;
+
+    color:#e6322b;
+
+    stroke-width:2;
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px) {
+
+    .nav-links {
+
+        display: none;
+
+    }
+
+    .register-btn {
+
+        display: none;
+
+    }
+
+    .hamburger {
+
+        display: block;
+
+    }
+
+    .logo img {
+
+        height: 58px;
+
+    }
+
+    .campaign-logo {
+
+        width: 220px;
+
+    }
+
+    .hero h1 {
+        font-size: 112px;
+    }
+
+    .hero h2 {
+
+        font-size: 24px;
+
+    }
+
+    #countdown {
+
+        font-size: 28px;
+
+    }
+
+    .about {
+
+        padding: 80px 7%;
+
+    }
+
+    .about-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+    }
+
+    .about-content h2 {
+
+        font-size: 48px;
+
+    }
+
+    .about-content p {
+
+        font-size: 17px;
+
+    }
+
+    .challenge {
+
+        padding: 80px 7%;
+
+    }
+
+    .challenge-header h2 {
+
+        font-size: 54px;
+
+    }
+
+    .challenge-intro {
+
+        font-size: 18px;
+
+    }
+
+    .challenge-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .pricing{
+
+    padding:80px 7%;
+
+}
+
+.pricing-header h2{
+
+    font-size:54px;
+
+}
+
+.pricing-subtitle{
+
+    font-size:18px;
+
+}
+
+.pricing-table{
+
+    overflow-x:auto;
+
+}
+
+.pricing-row{
+
+    min-width:600px;
+
+}
+
+}
