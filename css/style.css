@@ -1113,6 +1113,7 @@ body {
 
 }
 
+
 .experience-header {
 
     max-width: 760px;
@@ -4020,7 +4021,1987 @@ COUNTDOWN BANNER
 }
 
 /* Mobile */
-@media (max-width:768px) {}
+@media (max-width:768px) {
+
+    /* Header */
+
+    .header {
+
+        padding: 14px 5%;
+
+    }
+
+    .distance-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+
+    }
+
+    .logo img {
+
+        height: 50px;
+
+    }
+
+    .nav-links {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        top: 78px;
+
+        height: calc(100vh - 78px);
+
+        padding: 25px;
+
+    }
+
+    .nav-links>li>a {
+
+        font-size: 1rem;
+
+        padding: 16px 0;
+
+    }
+
+    .hamburger {
+
+        transform: scale(.9);
+
+    }
+
+    /* Homepage - Hero */
+
+    .hero {
+
+        min-height: 100vh;
+
+        padding: 110px 20px 70px;
+
+    }
+
+    .hero-content {
+
+        max-width: 100%;
+
+    }
+
+    .campaign-logo {
+
+        width: 170px;
+
+        margin-bottom: 20px;
+
+    }
+
+    .event-date {
+
+        font-size: 1.1rem;
+
+        letter-spacing: 2px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 4.2rem;
+
+        line-height: .95;
+
+        margin: 20px 0;
+
+    }
+
+    .hero h2 {
+
+        font-size: 1.3rem;
+
+        line-height: 1.4;
+
+        margin-bottom: 40px;
+
+    }
+
+    .countdown-box p {
+
+        font-size: 1rem;
+
+    }
+
+    #countdown {
+
+        font-size: 1.05rem;
+
+        line-height: 1.5;
+
+    }
+
+    .hero-btn {
+
+        width: 230px;
+
+        justify-content: center;
+
+    }
+
+    .scroll-down {
+
+        display: none;
+
+    }
+
+    /* Homepage - Choose Your Challenge */
+
+    .challenge {
+
+        padding: 80px 20px;
+
+    }
+
+    .challenge-header {
+
+        margin-bottom: 50px;
+
+    }
+
+    .challenge-header h2 {
+
+        font-size: 58px;
+
+        line-height: .95;
+
+    }
+
+    .challenge-intro {
+
+        font-size: 1rem;
+
+        line-height: 1.8;
+
+    }
+
+    .challenge-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+
+    }
+
+    .challenge-card {
+
+        padding: 32px 28px;
+
+    }
+
+    .distance {
+
+        font-size: 72px;
+
+    }
+
+    .challenge-card h3 {
+
+        font-size: 2rem;
+
+    }
+
+    .challenge-card p {
+
+        font-size: 1rem;
+
+        margin-bottom: 24px;
+
+    }
+
+    .challenge-info {
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+    }
+
+    .challenge-info span {
+
+        font-size: .95rem;
+
+    }
+
+    .challenge-info strong {
+
+        font-size: 1rem;
+
+        text-align: right;
+
+    }
+
+    /* Homepage - Registration Fees */
+
+    .pricing {
+
+        padding: 80px 20px;
+
+    }
+
+    .pricing-header {
+
+        margin-bottom: 45px;
+
+    }
+
+    .pricing-header h2 {
+
+        font-size: 58px;
+
+        line-height: .95;
+
+    }
+
+    .pricing-subtitle {
+
+        font-size: 1rem;
+
+        line-height: 1.8;
+
+    }
+
+    .pricing-row div {
+
+        padding: 18px 12px;
+
+        font-size: 1rem;
+
+        text-align: center;
+
+    }
+
+    .pricing-head div {
+
+        font-size: 1.1rem;
+
+    }
+
+    .pricing-row div:first-child {
+
+        font-weight: 700;
+
+    }
+
+    /* Homepage - Race Inclusions */
+
+    .inclusions {
+
+        padding: 80px 20px;
+
+    }
+
+    .inclusion-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        margin-top: 45px;
+
+    }
+
+    .inclusion-card {
+
+        min-height: auto;
+
+        padding: 32px 28px;
+
+    }
+
+    .inclusion-card h3 {
+
+        font-size: 2rem;
+
+        margin-bottom: 14px;
+
+    }
+
+    .inclusion-card p {
+
+        font-size: 1rem;
+
+        line-height: 1.8;
+
+    }
+
+    /* Homepage - Heritage Experience */
+
+    .experience {
+
+        padding: 80px 20px;
+
+    }
+
+    .experience-header {
+
+        margin-bottom: 50px;
+
+    }
+
+    .experience-header h2 {
+
+        font-size: 58px;
+
+        line-height: .95;
+
+    }
+
+    .experience-intro {
+
+        font-size: 1rem;
+
+        line-height: 1.8;
+
+    }
+
+
+
+
+    .experience-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+
+        margin-bottom: 70px;
+
+    }
+
+    .experience-row.reverse .experience-image,
+
+    .experience-row.reverse .experience-content {
+
+        order: initial;
+
+    }
+
+    .experience-image {
+
+        border-radius: 20px;
+
+    }
+
+    .experience-image img {
+
+        height: 260px;
+
+    }
+
+    .experience-content {
+
+        text-align: center;
+
+    }
+
+    .experience-content h3 {
+
+        font-size: 2rem;
+
+        margin-bottom: 18px;
+
+    }
+
+    .experience-content p {
+
+        font-size: 1rem;
+
+        line-height: 1.8;
+
+    }
+
+
+    /* Homepage - Heritage Journey */
+
+    .journey {
+
+        padding: 80px 20px;
+
+    }
+
+    .journey-header {
+
+        margin-bottom: 50px;
+
+    }
+
+    .journey-header h2 {
+
+        font-size: 58px;
+
+        line-height: .95;
+
+    }
+
+    .journey-intro {
+
+        font-size: 1rem;
+
+        line-height: 1.8;
+
+    }
+
+    .journey-timeline {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        margin-bottom: 50px;
+
+    }
+
+    .timeline-line {
+
+        display: none;
+
+    }
+
+    .timeline-item {
+
+        height: auto;
+
+        min-height: 170px;
+
+        padding: 28px 24px;
+
+    }
+
+    .timeline-item.active {
+
+        transform: none;
+
+    }
+
+    .journey-stats {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+
+    }
+
+    .stat-card {
+
+        padding: 28px 18px;
+
+    }
+
+    .stat-card h3 {
+
+        font-size: 2.4rem;
+
+    }
+
+    .stat-card p {
+
+        font-size: .95rem;
+
+    }
+
+    /*====================================
+  PARTNERS
+====================================*/
+
+    .partners {
+
+        background: #f7f7f7;
+
+        padding: 90px 8% 70px;
+
+    }
+
+    .partners-container {
+
+        max-width: 1400px;
+
+        margin: auto;
+
+        text-align: center;
+
+    }
+
+    .partners h2 {
+
+        color: #111;
+
+        margin: 15px 0;
+
+        font-size: 2.6rem;
+
+    }
+
+    .partners-intro {
+
+        color: #666;
+
+        max-width: 700px;
+
+        margin: auto;
+
+        line-height: 1.8;
+
+    }
+
+    .partners-logos {
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 60px;
+
+        margin-top: 70px;
+
+        align-items: center;
+
+        justify-items: center;
+
+    }
+
+    .partner-logo {
+
+        transition: .35s;
+
+        opacity: .9;
+
+    }
+
+    .partner-logo:hover {
+
+        opacity: 1;
+
+        transform: translateY(-6px);
+
+    }
+
+    .partner-adworx img {
+
+        max-width: 180px;
+
+    }
+
+    .partner-city img {
+
+        max-width: 115px;
+
+    }
+
+    .partner-province img {
+
+        max-width: 115px;
+
+    }
+
+    .partner-paddlers img {
+
+        max-width: 160px;
+
+    }
+
+    .partner-item {
+
+        width: 220px;
+
+        height: 120px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+
+        will-change: transform;
+
+    }
+
+    .partner-item:hover {
+
+        transform: translateY(-6px);
+
+    }
+
+    .partner-item img {
+
+        width: auto;
+
+        height: auto;
+
+        max-width: 190px;
+
+        max-height: 90px;
+
+        object-fit: contain;
+
+        transition: filter .35s ease;
+
+    }
+
+    .partner-item:hover {
+
+        transform: translateY(-4px) scale(1.05);
+
+    }
+
+    .organizer-divider {
+
+        width: 160px;
+        height: 1px;
+
+        background: #d9d9d9;
+
+        margin: 55px auto 20px;
+
+    }
+
+    .organized-by-title {
+
+        font-size: .85rem;
+
+        letter-spacing: 4px;
+
+        color: #666;
+        ;
+
+        margin-bottom: 15px;
+
+        font-weight: 700;
+
+        text-align: center;
+
+        width: 100%;
+
+    }
+
+    .organizer-logo {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+    .organizer-logo img {
+
+        width: 220px;
+
+        opacity: .85;
+
+        transition: opacity .35s ease;
+
+        transition:
+            transform .35s ease,
+            opacity .35s ease,
+            filter .35s ease;
+
+        will-change: transform;
+
+    }
+
+    .organizer-logo img:hover {
+
+        transform: translateY(-4px) scale(1.03);
+
+        opacity: 1;
+
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .18));
+
+    }
+
+    .partners-logos {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 35px 20px;
+
+        margin-top: 45px;
+
+    }
+
+    .partner-item {
+
+        width: 100%;
+
+        height: 100px;
+
+    }
+
+    .partner-item img {
+
+        max-width: 130px;
+
+        max-height: 70px;
+
+    }
+
+    .organizer-divider {
+
+        width: 120px;
+
+        margin: 45px auto 18px;
+
+    }
+
+    .organized-by-title {
+
+        font-size: .8rem;
+
+        letter-spacing: 3px;
+
+    }
+
+    .organizer-logo img {
+
+        width: 180px;
+
+    }
+
+    /* Homepage - Footer */
+
+    .footer {
+
+        padding: 70px 20px 30px;
+
+    }
+
+    .footer-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        text-align: center;
+
+    }
+
+    .footer-brand {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+    .footer-brand img {
+
+        width: 220px;
+
+        margin-bottom: 20px;
+
+    }
+
+    .footer-brand p {
+
+        max-width: 320px;
+
+    }
+
+
+    .footer-social {
+
+        justify-content: center;
+
+        margin-top: 24px;
+
+    }
+
+    .footer-links {
+
+        align-items: center;
+
+        gap: 12px;
+
+    }
+
+    .footer-links h4 {
+
+        margin-bottom: 14px;
+
+    }
+
+    .footer-links {
+
+        align-items: center;
+
+        gap: 12px;
+
+    }
+
+    .footer-links h4 {
+
+        margin-bottom: 14px;
+
+    }
+
+    /*====================================
+  PAGE BANNER
+====================================*/
+
+    .page-banner {
+
+        position: relative;
+
+        height: 250px;
+
+        background: url("../images/banner/event-banner.jpg") center center/cover no-repeat;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        overflow: hidden;
+
+        background-position: center 40%;
+
+        padding-top: 45px;
+
+    }
+
+    .page-banner-overlay {
+
+        position: absolute;
+
+        inset: 0;
+
+        background: rgba(0, 0, 0, .58);
+
+    }
+
+    .page-banner-content {
+
+        position: relative;
+
+        z-index: 2;
+
+        color: #fff;
+
+        padding-top: 45px;
+
+    }
+
+    .page-banner h1 {
+
+        font-size: 3rem;
+
+        margin: 12px 0;
+
+        font-weight: 800;
+
+    }
+
+    .page-banner-text {
+
+        color: #d6d6d6;
+
+        font-size: 1.05rem;
+
+        margin-bottom: 22px;
+
+    }
+
+    .breadcrumb {
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 10px;
+
+        font-size: .95rem;
+
+    }
+
+    .breadcrumb a {
+
+        color: #fff;
+
+        text-decoration: none;
+
+        transition: .3s;
+
+    }
+
+    .breadcrumb a:hover {
+
+        color: #ff3b30;
+
+    }
+
+    .breadcrumb span {
+
+        color: #9d9d9d;
+
+    }
+
+    .breadcrumb strong {
+
+        color: #ff3b30;
+
+    }
+
+    .event-overview {
+
+        padding: 70px 24px;
+
+        background: #fff;
+
+    }
+
+    .event-overview .container {
+
+        padding: 0;
+
+        width: 100%;
+
+    }
+
+    .event-overview-grid {
+
+        max-width: 1200px;
+
+        margin: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 35px;
+
+        gap: 70px;
+
+        align-items: center;
+
+    }
+
+    .event-overview-image {
+
+        overflow: hidden;
+
+        border-radius: 24px;
+
+        order: -1;
+
+    }
+
+    .event-overview-image img {
+
+        width: 100%;
+
+        border-radius: 18px;
+
+        display: block;
+
+        transition: transform .6s ease;
+
+        box-shadow: 0 35px 70px rgba(0, 0, 0, .18);
+
+        overflow: hidden;
+
+
+    }
+
+    .event-overview-image:hover img {
+
+        transform: scale(1.04);
+
+    }
+
+    .event-overview-content h2 {
+
+        font-size: 3rem;
+
+        color: #222;
+
+        border-left: 5px solid #ff3b30;
+
+        padding-left: 22px;
+
+        max-width: 520px;
+
+        font-weight: 800;
+
+        line-height: 1.1;
+
+        margin-bottom: 14px;
+
+    }
+
+    .event-overview-content h2 span {
+
+        color: #ff3b30;
+
+    }
+
+    .event-overview-content p {
+
+        color: #555;
+
+        line-height: 1.9;
+
+        margin-bottom: 18px;
+
+    }
+
+    .event-highlights {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 14px;
+
+    }
+
+    .event-highlights div {
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: flex-start;
+
+        min-height: 110px;
+
+    }
+
+    .event-highlights div:hover {
+
+        transform: translateY(-4px);
+
+        border-color: #ef3b2d;
+
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+    }
+
+    .event-highlights i {
+
+        width: 24px;
+
+        height: 24px;
+
+        color: #ef3b2d;
+
+        flex-shrink: 0;
+
+    }
+
+    .event-highlights span {
+
+        font-weight: 600;
+
+        color: #222;
+
+    }
+
+    .highlight {
+
+        color: #ff3b30;
+
+        font-weight: 700;
+
+    }
+
+    .overview-badge {
+
+        display: inline-block;
+
+        padding: 8px 18px;
+
+        background: #fff3f2;
+
+        color: #ff3b30;
+
+        border: 1px solid rgba(255, 59, 48, .15);
+
+        border-radius: 999px;
+
+        font-size: .85rem;
+
+        font-weight: 700;
+
+        margin-bottom: 28px;
+
+    }
+
+    .text-red {
+
+        color: #e6362b;
+
+        font-weight: 700;
+
+    }
+
+    .section-divider {
+
+        border: none;
+
+        height: 1px;
+
+        background: #ececec;
+
+        margin: 32px 0;
+
+    }
+
+    .event-highlights svg {
+
+        width: 24px;
+
+        height: 24px;
+
+        color: #ef3b2d !important;
+
+        stroke: #ef3b2d !important;
+
+    }
+
+    .event-overview-content {
+
+        order: 1;
+
+    }
+
+    .event-overview-image {
+
+        order: 2;
+
+    }
+
+    .event-overview-content h2 {
+
+        font-size: 3rem;
+
+        padding-left: 16px;
+
+        border-left: 4px solid #ef3b2d;
+
+        margin-bottom: 18px;
+
+    }
+
+    .overview-badge {
+
+        font-size: .95rem;
+
+        padding: 12px 18px;
+
+        margin-bottom: 22px;
+
+    }
+
+
+    .event-overview-content p {
+
+        font-size: 1.08rem;
+
+        line-height: 1.9;
+
+    }
+
+    .event-highlights {
+
+        gap: 14px;
+
+        margin-top: 28px;
+
+    }
+
+    .event-highlights div {
+
+        padding: 16px;
+
+    }
+
+    .event-overview-image img {
+
+        height: 300px;
+
+        object-fit: cover;
+
+    }
+
+    .event-overview-image {
+
+        width: 100%;
+
+    }
+
+    .event-overview-image img {
+
+        width: 100%;
+
+        height: 260px;
+
+        object-fit: cover;
+
+        display: block;
+
+    }
+
+    /*====================================
+  RACE CATEGORIES
+====================================*/
+
+    .race-categories-page {
+
+        padding: 70px 24px;
+
+        background: #f8f9fb;
+
+    }
+
+    .race-categories-page .container {
+
+        padding: 0;
+
+        width: 100%;
+
+    }
+
+    .section-title {
+
+        font-size: 3rem;
+
+        font-weight: 800;
+
+        color: #222;
+
+        margin: 12px 0 18px;
+
+    }
+
+    .section-description {
+
+        max-width: 540px;
+
+        color: #666;
+
+        line-height: 1.8;
+
+        margin-bottom: 60px;
+
+    }
+
+    .distance-grid {
+
+        margin-top: 70px;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 28px;
+
+    }
+
+    .distance-card {
+
+        position: relative;
+
+        background: #fff;
+
+        border-radius: 22px;
+
+        padding: 46px 34px 42px;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, .06);
+
+        transition: all .35s ease;
+
+        border-top: 5px solid transparent;
+
+        display: flex;
+
+        flex-direction: column;
+
+    }
+
+    .distance-card:hover {
+
+        transform: translateY(-10px);
+
+        border-top: 5px solid #ef3b2d;
+
+        box-shadow: 0 28px 60px rgba(239, 59, 45, .18);
+
+    }
+
+    .distance-card h3 {
+
+        font-size: 3.2rem;
+
+        color: #ef3b2d;
+
+        margin-bottom: 8px;
+
+        font-family: "Bebas Neue", sans-serif;
+
+        letter-spacing: 1px;
+
+        transition: transform .35s ease;
+
+    }
+
+    .distance-card:hover h3 {
+
+        transform: translateX(6px);
+
+    }
+
+    .distance-subtitle {
+
+        font-weight: 700;
+
+        font-size: 1rem;
+
+        color: #222;
+
+        margin-bottom: 22px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+
+    }
+
+    .distance-text {
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 22px;
+    }
+
+    .distance-card ul {
+
+        list-style: none;
+
+        padding: 0;
+
+        margin: 0;
+
+        margin-top: auto;
+
+    }
+
+    .distance-card li {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-bottom: 16px;
+
+        color: #333;
+
+        font-weight: 600;
+
+    }
+
+    .distance-card svg {
+
+        width: 18px;
+        height: 18px;
+
+        stroke: #ef3b2d;
+
+        background: #fff3f2;
+
+        padding: 8px;
+
+        border-radius: 50%;
+
+        flex-shrink: 0;
+
+    }
+
+    .featured-distance {
+
+        border-top: 6px solid #ef3b2d;
+
+        transform: translateY(-18px);
+
+        box-shadow: 0 35px 80px rgba(239, 59, 45, .18);
+
+    }
+
+    .featured-distance:hover {
+
+        transform: translateY(-18px);
+
+    }
+
+    .featured-badge {
+
+        position: absolute;
+
+        top: -16px;
+
+        right: 28px;
+
+        background: #ef3b2d;
+
+        color: #fff;
+
+        padding: 7px 16px;
+
+        border-radius: 999px;
+
+        font-size: .72rem;
+
+        font-weight: 700;
+
+        letter-spacing: 1px;
+
+        box-shadow: 0 10px 20px rgba(239, 59, 45, .25);
+
+    }
+
+    .distance-info {
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid #ececec;
+    }
+
+    .price-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 28px 0 20px;
+    }
+
+    .price-label {
+        display: block;
+        font-size: .72rem;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: #888;
+        margin-bottom: 4px;
+    }
+
+    .price {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #ef3b2d;
+    }
+
+    .regular-price {
+        color: #222;
+    }
+
+    .distance-info hr {
+        border: none;
+        border-top: 1px solid #ececec;
+        margin: 18px 0;
+    }
+
+    .includes {
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 16px;
+    }
+
+    .gun-start {
+        color: #222;
+        font-weight: 600;
+    }
+
+    .section-title {
+
+        font-size: 3rem;
+
+        line-height: 1.05;
+
+    }
+
+    .section-description {
+
+        max-width: 100%;
+
+        margin-bottom: 45px;
+
+        font-size: 1rem;
+
+    }
+
+    .distance-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+
+        margin-top: 40px;
+
+    }
+
+    .distance-card {
+
+        padding: 32px 24px;
+
+    }
+
+    .distance-card h3 {
+
+        font-size: 4rem;
+
+    }
+
+    .distance-subtitle {
+
+        font-size: 1.15rem;
+
+        margin-bottom: 16px;
+
+    }
+
+    .distance-text {
+
+        font-size: 1rem;
+
+        line-height: 1.8;
+
+    }
+
+    .price {
+
+        font-size: 1.55rem;
+
+    }
+
+    .featured-distance {
+
+        transform: none;
+
+    }
+
+    .featured-distance:hover {
+
+        transform: none;
+
+    }
+
+    @media (max-width:768px) {
+
+        .event-awards {
+
+            padding: 70px 24px;
+
+        }
+
+        .event-awards .container {
+
+            padding: 0;
+
+            width: 100%;
+
+
+        }
+
+    }
+
+
+    @media (max-width:768px) {
+
+        .event-awards .section-title {
+
+            font-size: 3rem;
+
+            line-height: 1.05;
+
+        }
+
+        .event-awards .section-description {
+
+            max-width: 100%;
+
+            font-size: 1rem;
+
+            margin-bottom: 40px;
+
+        }
+
+    }
+
+    @media (max-width:768px) {
+
+        .awards-grid {
+
+            grid-template-columns: 1fr;
+
+            gap: 24px;
+
+        }
+
+    }
+
+    @media (max-width:768px) {
+
+        .award-card {
+
+            padding: 28px 22px;
+
+        }
+
+    }
+
+    @media (max-width:768px) {
+
+        .award-icon {
+
+            width: 60px;
+            height: 60px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .award-icon svg {
+
+            width: 28px;
+            height: 28px;
+
+        }
+
+    }
+
+    @media (max-width:768px) {
+
+        .award-card h3 {
+
+            font-size: 1.9rem;
+
+        }
+
+    }
+
+    @media (max-width:768px) {
+
+        .award-card ul {
+
+            grid-template-columns: 1fr;
+
+        }
+
+    }
+
+    @media (max-width:768px) {
+
+        .award-includes {
+
+            gap: 10px;
+
+        }
+
+        .award-includes span {
+
+            font-size: .82rem;
+
+            padding: 7px 12px;
+
+        }
+
+    }
+
+    @media (max-width:768px) {
+
+        .award-note {
+
+            flex-direction: column;
+
+            gap: 18px;
+
+            padding: 24px;
+
+        }
+
+    }
+
+    /*====================================
+  MOBILE - ROUTE MAPS
+====================================*/
+
+    @media (max-width:768px) {
+
+        .route-maps {
+
+            padding: 70px 24px;
+
+        }
+
+        .route-maps .container {
+
+            padding: 0;
+
+        }
+
+        .route-maps .section-title {
+
+            font-size: 3rem;
+            line-height: 1.05;
+
+        }
+
+        .route-maps .section-description {
+
+            max-width: 100%;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+
+        }
+
+        .route-grid {
+
+            gap: 22px;
+            margin-top: 40px;
+
+        }
+
+        .route-card {
+
+            padding: 28px 22px;
+
+        }
+
+        .route-icon {
+
+            width: 70px;
+            height: 70px;
+
+            margin-bottom: 18px;
+
+        }
+
+        .route-icon svg {
+
+            width: 32px;
+            height: 32px;
+
+        }
+
+        .route-card h3 {
+
+            font-size: 1.55rem;
+            margin-bottom: 12px;
+
+        }
+
+        .route-card p {
+
+            font-size: .98rem;
+            line-height: 1.75;
+            margin-bottom: 24px;
+
+        }
+
+        .coming-soon {
+
+            display: block;
+            width: 100%;
+
+            text-align: center;
+
+            padding: 14px 18px;
+
+            font-size: .9rem;
+            line-height: 1.4;
+
+        }
+
+        /* Featured card shouldn't float on mobile */
+
+        .featured-route {
+
+            transform: none;
+
+        }
+
+    }
+
+    .event-schedule {
+
+        padding: 70px 24px;
+
+    }
+
+    .event-schedule .container {
+
+        padding: 0;
+
+    }
+
+    .schedule-timeline {
+
+        margin-top: 40px;
+
+    }
+
+    .schedule-timeline::before {
+
+        display: none;
+
+    }
+
+    .schedule-item {
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+        margin-bottom: 24px;
+
+    }
+
+    .timeline-date {
+
+        width: 100px;
+        padding: 14px 8px;
+
+        font-size: .72rem;
+
+        border-radius: 14px;
+
+    }
+
+    .timeline-date strong {
+
+        font-size: 1.6rem;
+
+    }
+
+    .timeline-content {
+
+        padding: 22px;
+
+        border-radius: 18px;
+
+    }
+
+    .timeline-content h3 {
+
+        font-size: 1.35rem;
+        margin-bottom: 14px;
+
+    }
+
+    .timeline-content p {
+
+        font-size: .95rem;
+        line-height: 1.7;
+
+    }
+
+    .schedule-note {
+
+        margin-top: 35px;
+
+        padding: 20px;
+
+        border-radius: 18px;
+
+        gap: 14px;
+
+    }
+
+    .schedule-note p {
+
+        font-size: .95rem;
+
+    }
+
+    .faq-section {
+
+        padding: 70px 24px;
+
+    }
+
+    .faq-section .container {
+
+        padding: 0;
+
+    }
+
+    .faq-list {
+
+        margin-top: 40px;
+
+    }
+
+    .faq-item {
+
+        border-radius: 16px;
+
+        margin-bottom: 14px;
+
+    }
+
+    .faq-item summary {
+
+        padding: 20px 22px;
+
+        padding-right: 50px;
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+
+    }
+
+    .faq-item summary::after {
+
+        right: 20px;
+
+        font-size: 1.5rem;
+
+    }
+
+    .faq-item p {
+
+        padding: 20px 22px 24px;
+
+        font-size: .95rem;
+
+        line-height: 1.8;
+
+    }
+
+    .faq-list {
+
+        margin-top: 45px;
+
+    }
+
+    .timeline-date {
+
+        width: 110px;
+
+    }
+
+
+}
+
+
 
 /* Small Mobile */
 @media (max-width:576px) {}
