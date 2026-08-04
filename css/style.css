@@ -1701,17 +1701,17 @@ COUNTDOWN BANNER
 
 .partners-logos{
 
-    display:flex;
+    display:grid;
 
-    justify-content:center;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:60px;
+
+    margin-top:70px;
 
     align-items:center;
 
-    gap:140px;
-
-    margin-top:55px;
-
-    flex-wrap:wrap;
+    justify-items:center;
 
 }
 
@@ -1731,27 +1731,45 @@ COUNTDOWN BANNER
 
 }
 
-.partner-adworx{
-    width:190px;
-    height:auto;
+.partner-adworx img{
+
+    max-width:180px;
+
 }
 
-.partner-city,
-.partner-province{
-    width:130px;
-    height:auto;
+.partner-city img{
+
+    max-width:115px;
+
+}
+
+.partner-province img{
+
+    max-width:115px;
+
+}
+
+.partner-paddlers img{
+
+    max-width:160px;
+
 }
 
 .partner-item{
 
     width:220px;
+
     height:120px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    transition:transform .35s ease;
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
+
+    will-change:transform;
 
 }
 
@@ -1763,17 +1781,23 @@ COUNTDOWN BANNER
 
 .partner-item img{
 
-    display:block;
+    width:auto;
 
-    transition:transform .35s ease, filter .35s ease;
+    height:auto;
+
+    max-width:190px;
+
+    max-height:90px;
+
+    object-fit:contain;
+
+    transition:filter .35s ease;
 
 }
 
-.partner-item:hover img{
+.partner-item:hover{
 
-    transform:scale(1.05);
-
-    filter:drop-shadow(0 12px 20px rgba(0,0,0,.15));
+    transform:translateY(-4px) scale(1.05);
 
 }
 
@@ -1948,7 +1972,11 @@ COUNTDOWN BANNER
 
     text-decoration:none;
 
-    transition:.3s;
+    display:inline-block;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
 
 }
 
@@ -1956,7 +1984,7 @@ COUNTDOWN BANNER
 
     color:#ff3b30;
 
-    padding-left:6px;
+    transform:translateX(6px);
 
 }
 
