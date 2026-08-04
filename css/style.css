@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
 /* =========================
    RESET
 ========================= */
@@ -24,6 +30,14 @@ body {
 /* =========================
    HEADER
 ========================= */
+
+    html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    overflow-x:hidden;
+}
 
 .inner-page .header {
 
@@ -4075,19 +4089,14 @@ COUNTDOWN BANNER
 
     /* Homepage - Hero */
 
-    .hero {
+.hero {
+    min-height: 100vh;
+    padding: 0;
+}
 
-        min-height: 100vh;
-
-        padding: 110px 20px 70px;
-
-    }
-
-    .hero-content {
-
-        max-width: 100%;
-
-    }
+.hero-content {
+    padding: 110px 20px 70px;
+}
 
     .campaign-logo {
 
