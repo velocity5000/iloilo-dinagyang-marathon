@@ -25,6 +25,20 @@ body {
    HEADER
 ========================= */
 
+.inner-page .header {
+
+    background: #333;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .15);
+
+}
+
+.inner-page .header.scrolled {
+
+    background: #333;
+
+}
+
 .header {
 
     position: fixed;
@@ -3647,33 +3661,63 @@ COUNTDOWN BANNER
   MOBILE NAVIGATION
 ====================================*/
 
-.hamburger{
+.hamburger {
 
-    display:none;
+    display: none;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    justify-content:center;
+    justify-content: center;
 
-    gap:6px;
+    gap: 6px;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    z-index:1100;
+    z-index: 1100;
 
 }
 
-.hamburger span{
+.hamburger span {
 
-    width:28px;
+    width: 28px;
 
-    height:3px;
+    height: 3px;
 
-    background:#fff;
+    background: #fff;
 
-    border-radius:999px;
+    border-radius: 999px;
 
-    transition:.3s ease;
+    transition: .3s ease;
+
+}
+
+/*====================================
+  MOBILE MENU OVERLAY
+====================================*/
+
+.mobile-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .55);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 1040;
+
+}
+
+.mobile-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
 
 }
 
@@ -3692,13 +3736,13 @@ COUNTDOWN BANNER
 
         position: fixed;
 
-        top: 0;
+        top: 92px;
         right: -100%;
 
         width: 320px;
         max-width: 85%;
 
-        height: 100vh;
+        height: calc(100vh - 92px);
 
         background: #111;
 
@@ -3712,7 +3756,7 @@ COUNTDOWN BANNER
 
         gap: 0;
 
-        padding: 110px 35px 40px;
+        padding: 30px 35px 40px;
 
         transition: right .35s ease;
 
@@ -3731,6 +3775,105 @@ COUNTDOWN BANNER
         width: 100%;
 
     }
+
+    .nav-links .dropdown-menu {
+
+        position: static !important;
+
+        transform: none !important;
+
+        top: auto !important;
+
+        left: auto !important;
+
+        min-width: 100%;
+
+        width: 100%;
+
+        margin-top: 10px;
+
+        padding: 0;
+
+        background: #2b2b2b;
+
+        border: none;
+
+        border-radius: 12px;
+
+        box-shadow: none;
+
+        opacity: 1 !important;
+
+        visibility: visible !important;
+
+        display: none;
+
+    }
+
+    .nav-links li:hover .dropdown-menu {
+
+        display: none;
+
+    }
+
+    .nav-links li.open .dropdown-menu {
+
+        display: block !important;
+
+    }
+
+    .nav-links .dropdown-menu li {
+
+        width: 100%;
+        background: #2b2b2b;
+
+    }
+
+    .nav-links .dropdown-menu li:not(:last-child) {
+
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+    }
+
+    .nav-links .dropdown-menu a {
+
+        display: block;
+        width: 100%;
+
+        padding: 16px 20px;
+
+        color: #ffffff !important;
+
+        background: #2b2b2b !important;
+
+        text-decoration: none;
+
+        transition: .25s;
+
+    }
+
+    .nav-links .dropdown-menu li:hover {
+
+        background: #ef3b2d !important;
+
+    }
+
+    .nav-links .dropdown-menu li:hover a {
+
+        color: #fff !important;
+        background: #ef3b2d !important;
+
+    }
+
+    .nav-links .dropdown-menu a.active {
+
+        color: #ef3b2d;
+
+        font-weight: 700;
+
+    }
+
+
 
     .nav-links>li>a {
 
@@ -3768,6 +3911,112 @@ COUNTDOWN BANNER
 
     }
 
+    .distance-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 24px;
+
+    }
+
+    /* Homepage - Journey */
+
+    .journey-timeline {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 24px;
+
+    }
+
+    .timeline-line {
+
+        display: none;
+
+    }
+
+    .timeline-item {
+
+        height: auto;
+
+        min-height: 220px;
+
+        padding: 35px 25px;
+
+    }
+
+    .timeline-item.active {
+
+        transform: none;
+
+    }
+
+    .journey-stats {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    /* Homepage - Countdown Banner */
+
+    .countdown-banner {
+
+        padding: 140px 25px 100px;
+
+    }
+
+    .countdown-event {
+
+        font-size: 2.8rem;
+
+        margin-bottom: 20px;
+
+    }
+
+    .countdown-banner h2 {
+
+        font-size: 3rem;
+
+        line-height: 1.15;
+
+        margin: 15px 0 20px;
+
+    }
+
+    .countdown-text {
+
+        max-width: 650px;
+
+        font-size: 1.05rem;
+
+        line-height: 1.7;
+
+        margin-bottom: 40px;
+
+    }
+
+    .count-card {
+
+        width: 145px;
+
+        height: 130px;
+
+    }
+
+    .count-card span {
+
+        font-size: 3.6rem;
+
+    }
+
+    .count-card small {
+
+        font-size: .75rem;
+
+        letter-spacing: 3px;
+
+    }
+
 }
 
 /* Mobile */
@@ -3775,185 +4024,3 @@ COUNTDOWN BANNER
 
 /* Small Mobile */
 @media (max-width:576px) {}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px) {
-
-    .nav-links {
-
-        display: none;
-
-    }
-
-    .register-btn {
-
-        display: none;
-
-    }
-
-    .hamburger {
-
-        display: block;
-
-    }
-
-    .logo img {
-
-        height: 58px;
-
-    }
-
-    .campaign-logo {
-
-        width: 220px;
-
-    }
-
-    .hero h1 {
-        font-size: 112px;
-    }
-
-    .hero h2 {
-
-        font-size: 24px;
-
-    }
-
-    #countdown {
-
-        font-size: 28px;
-
-    }
-
-    .about {
-
-        padding: 80px 7%;
-
-    }
-
-    .about-container {
-
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-
-    }
-
-    .about-content h2 {
-
-        font-size: 48px;
-
-    }
-
-    .about-content p {
-
-        font-size: 17px;
-
-    }
-
-    .challenge {
-
-        padding: 80px 7%;
-
-    }
-
-    .challenge-header h2 {
-
-        font-size: 54px;
-
-    }
-
-    .challenge-intro {
-
-        font-size: 18px;
-
-    }
-
-    .challenge-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .pricing {
-
-        padding: 80px 7%;
-
-    }
-
-    .pricing-header h2 {
-
-        font-size: 54px;
-
-    }
-
-    .pricing-subtitle {
-
-        font-size: 18px;
-
-    }
-
-    .pricing-table {
-
-        overflow-x: auto;
-
-    }
-
-    .pricing-row {
-
-        min-width: 600px;
-
-    }
-
-    .experience {
-
-        padding: 80px 7%;
-
-    }
-
-    .experience-header h2 {
-
-        font-size: 54px;
-
-    }
-
-    .experience-intro {
-
-        font-size: 18px;
-
-    }
-
-    .experience-row,
-    .experience-row.reverse {
-
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-
-        margin-bottom: 70px;
-
-    }
-
-    .experience-row.reverse .experience-image,
-    .experience-row.reverse .experience-content {
-
-        order: initial;
-
-    }
-
-    .experience-content h3 {
-
-        font-size: 34px;
-
-    }
-
-    .partners-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-}

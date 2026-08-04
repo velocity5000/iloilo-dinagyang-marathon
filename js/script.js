@@ -206,14 +206,36 @@ if (floatingBar) {
 
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
+const overlay = document.querySelector(".mobile-overlay");
 
 if (hamburger && navLinks) {
 
     hamburger.addEventListener("click", () => {
 
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+    overlay.classList.toggle("active");
+
+});
+
+}
+
+// ==========================
+// MOBILE DROPDOWNS
+// ==========================
+
+document.querySelectorAll(".nav-links > .dropdown > a").forEach(link => {
+
+    link.addEventListener("click", function (e) {
+
+        if (window.innerWidth <= 992) {
+
+            e.preventDefault();
+
+            this.parentElement.classList.toggle("open");
+
+        }
 
     });
 
-}
+});
