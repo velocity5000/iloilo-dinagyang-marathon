@@ -135,6 +135,140 @@ body {
 
 }
 
+/*====================================
+  NAVIGATION DROPDOWN
+====================================*/
+
+.nav-links{
+
+    display:flex;
+    align-items:center;
+    gap:42px;
+    list-style:none;
+
+}
+
+.nav-links li{
+
+    position:relative;
+
+}
+
+.nav-links li>a{
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.nav-links li>a:hover{
+
+    color:#ff3b30;
+
+}
+
+.nav-links i{
+
+    width:16px;
+    height:16px;
+
+    transition:.3s;
+
+}
+
+.dropdown:hover i{
+
+    transform:rotate(180deg);
+
+}
+
+/* Dropdown */
+
+.dropdown-menu{
+
+    position:absolute;
+
+    top:45px;
+    left:50%;
+
+    transform:translateX(-50%) translateY(12px);
+
+min-width:190px;
+
+    list-style:none;
+
+padding:6px 0;
+
+
+
+border-radius:8px;
+background:rgba(255,255,255,.94);
+
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,.35);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.25s ease;
+
+    z-index:999;
+
+}
+
+.dropdown:hover .dropdown-menu{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateX(-50%) translateY(0);
+
+}
+
+.dropdown-menu li{
+
+    width:100%;
+
+}
+
+.dropdown-menu a{
+
+    display:block;
+
+    color:#222 !important;
+
+padding:12px 20px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+    padding-left:20px;
+
+}
+
+.dropdown-menu a:hover{
+
+    background:#f6f6f6;
+
+    color:#ff3b30 !important;
+
+    padding-left:24px;
+
+}
+
 /* =========================
    HERO
 ========================= */
