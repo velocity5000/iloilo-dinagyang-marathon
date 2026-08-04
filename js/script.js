@@ -79,6 +79,20 @@ function updateCountdown() {
     countdown.innerHTML =
         `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
+    const floatingDays = document.getElementById("floating-days");
+    const floatingHours = document.getElementById("floating-hours");
+    const floatingMinutes = document.getElementById("floating-minutes");
+    const floatingSeconds = document.getElementById("floating-seconds");
+
+    if (floatingDays) {
+
+        floatingDays.textContent = days;
+        floatingHours.textContent = hours;
+        floatingMinutes.textContent = minutes;
+        floatingSeconds.textContent = seconds;
+
+    }
+
 }
 
 updateCountdown();
@@ -147,3 +161,27 @@ function updateRaceCountdown() {
 updateRaceCountdown();
 
 setInterval(updateRaceCountdown, 1000);
+
+/* ==========================
+   FLOATING COUNTDOWN
+========================== */
+
+const floatingBar = document.getElementById("floatingCountdown");
+
+if (floatingBar) {
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > window.innerHeight * 0.75) {
+
+            floatingBar.classList.add("show");
+
+        } else {
+
+            floatingBar.classList.remove("show");
+
+        }
+
+    });
+
+}
