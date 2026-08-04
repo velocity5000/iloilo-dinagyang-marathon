@@ -4,21 +4,27 @@
 
 const slides = document.querySelectorAll(".slide");
 
-let currentSlide = 0;
+if (slides.length > 0) {
 
-setInterval(() => {
+    let currentSlide = 0;
 
-    slides[currentSlide].classList.remove("active");
+    setInterval(() => {
 
-    currentSlide++;
+        slides[currentSlide].classList.remove("active");
 
-    if (currentSlide >= slides.length) {
-        currentSlide = 0;
-    }
+        currentSlide++;
 
-    slides[currentSlide].classList.add("active");
+        if (currentSlide >= slides.length) {
 
-}, 6000);
+            currentSlide = 0;
+
+        }
+
+        slides[currentSlide].classList.add("active");
+
+    }, 6000);
+
+}
 
 
 // ==========================
@@ -59,7 +65,11 @@ function updateCountdown() {
 
     if (difference <= 0) {
 
-        countdown.innerHTML = "Registration Ongoing";
+        if (countdown) {
+
+    countdown.innerHTML = "Registration Ongoing";
+
+}
 
         return;
 
@@ -76,8 +86,12 @@ function updateCountdown() {
     const seconds = Math.floor((difference % (1000 * 60))
         / 1000);
 
+    if (countdown) {
+
     countdown.innerHTML =
         `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+}
 
     const floatingDays = document.getElementById("floating-days");
     const floatingHours = document.getElementById("floating-hours");
