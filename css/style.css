@@ -1521,10 +1521,227 @@ COUNTDOWN BANNER
 
 }
 
+/*====================================
+  PARTNERS
+====================================*/
+
+.partners{
+
+    background:#f7f7f7;
+
+    padding:90px 8% 70px;
+
+}
+
+.partners-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.partners h2{
+
+    color:#111;
+
+    margin:15px 0;
+
+    font-size:2.6rem;
+
+}
+
+.partners-intro{
+
+    color:#666;
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+}
+
+.partners-logos{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:140px;
+
+    margin-top:55px;
+
+    flex-wrap:wrap;
+
+}
+
+.partner-logo{
+
+    transition:.35s;
+
+    opacity:.9;
+
+}
+
+.partner-logo:hover{
+
+    opacity:1;
+
+    transform:translateY(-6px);
+
+}
+
+.partner-adworx{
+    width:190px;
+    height:auto;
+}
+
+.partner-city,
+.partner-province{
+    width:130px;
+    height:auto;
+}
+
+.partner-item{
+
+    width:220px;
+    height:120px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:transform .35s ease;
+
+}
+
+.partner-item:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.partner-item img{
+
+    display:block;
+
+    transition:transform .35s ease, filter .35s ease;
+
+}
+
+.partner-item:hover img{
+
+    transform:scale(1.05);
+
+    filter:drop-shadow(0 12px 20px rgba(0,0,0,.15));
+
+}
+
+.organizer-divider{
+
+    width:160px;
+    height:1px;
+
+    background:#d9d9d9;
+
+    margin:55px auto 20px;
+
+}
+
+.organized-by-title{
+
+    font-size:.85rem;
+
+    letter-spacing:4px;
+
+    color:#666;;
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+        text-align:center;
+
+    width:100%;
+
+}
+
+.organizer-logo{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+
+}
+
+.organizer-logo img{
+
+    width:220px;
+
+    opacity:.85;
+
+    transition:opacity .35s ease;
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease,
+        filter .35s ease;
+
+    will-change:transform;
+
+}
+
+.organizer-logo img:hover{
+
+    transform:translateY(-4px) scale(1.03);
+
+    opacity:1;
+
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.18));
+
+}
+
 
 /*====================================
   FOOTER
 ====================================*/
+
+.footer-event-logo{
+
+    width:220px;
+
+    margin-bottom:18px;
+
+}
+
+.organized-by{
+
+    color:#999;
+
+    font-size:.9rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+
+}
+
+.footer-organizer-logo{
+
+    width:170px;
+
+    margin-bottom:28px;
+
+}
 
 .footer{
 
@@ -1869,6 +2086,12 @@ COUNTDOWN BANNER
     .experience-content h3 {
 
         font-size: 34px;
+
+    }
+
+        .partners-grid{
+
+        grid-template-columns:1fr;
 
     }
 
