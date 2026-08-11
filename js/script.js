@@ -180,13 +180,28 @@ setInterval(updateRaceCountdown, 1000);
    FLOATING COUNTDOWN
 ========================== */
 
-const floatingBar = document.getElementById("floatingCountdown");
+function setupFloatingCountdown() {
 
-if (floatingBar) {
+    const floatingBar = document.getElementById("floatingCountdown");
+    const footer = document.querySelector(".footer");
 
-    window.addEventListener("scroll", () => {
+    // Wait until both elements exist
+    if (!floatingBar || !footer) {
+        return false;
+    }
 
-        if (window.scrollY > window.innerHeight * 0.75) {
+    function updateFloatingCountdown() {
+
+        const footerRect = footer.getBoundingClientRect();
+
+        // Show countdown only when:
+        // 1. User has scrolled down
+        // 2. Footer is NOT visible
+
+        const footerVisible =
+            footerRect.top < window.innerHeight;
+
+        if (window.scrollY > window.innerHeight * 0.75 && !footerVisible) {
 
             floatingBar.classList.add("show");
 
@@ -196,6 +211,35 @@ if (floatingBar) {
 
         }
 
+    }
+
+    window.addEventListener("scroll", updateFloatingCountdown);
+
+    // Run once immediately
+    updateFloatingCountdown();
+
+    return true;
+}
+
+
+/*
+   Because the footer and countdown are loaded
+   dynamically by layout.js, wait for them to appear.
+*/
+
+if (!setupFloatingCountdown()) {
+
+    const observer = new MutationObserver(() => {
+
+        if (setupFloatingCountdown()) {
+            observer.disconnect();
+        }
+
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
     });
 
 }

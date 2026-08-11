@@ -39,3 +39,102 @@ async function initLayout() {
 }
 
 initLayout();
+
+/*====================================
+  PRIVACY / COOKIE NOTICE
+====================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Check if visitor has already accepted
+    if (localStorage.getItem("privacyAccepted") === "true") {
+        return;
+    }
+
+    // Create privacy banner
+    const banner = document.createElement("div");
+
+    banner.className = "privacy-cookie-banner";
+
+    banner.innerHTML = `
+
+        <div class="privacy-cookie-content">
+
+            <p>
+                We use cookies and similar technologies to improve your
+                experience and understand how visitors use our website.
+                <a href="privacy-policy.html">
+                    Read our Privacy Policy
+                </a>
+            </p>
+
+            <button id="privacyAcceptBtn">
+                Accept
+            </button>
+
+        </div>
+
+    `;
+
+    document.body.appendChild(banner);
+
+
+    // Accept button
+    const acceptButton = document.getElementById("privacyAcceptBtn");
+
+    acceptButton.addEventListener("click", function () {
+
+        localStorage.setItem("privacyAccepted", "true");
+
+        banner.classList.add("privacy-cookie-hide");
+
+        setTimeout(function () {
+
+            banner.remove();
+
+        }, 400);
+
+    });
+
+});
+
+/*====================================
+HIDE FLOATING COUNTDOWN WHEN FOOTER
+IS VISIBLE
+====================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const floatingCountdown = document.querySelector(".floating-countdown");
+    const footer = document.querySelector(".footer");
+
+    if (!floatingCountdown || !footer) return;
+
+    const footerObserver = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    // Footer is visible
+                    floatingCountdown.classList.add("countdown-hidden");
+
+                } else {
+
+                    // Footer is no longer visible
+                    floatingCountdown.classList.remove("countdown-hidden");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.05
+        }
+    );
+
+    footerObserver.observe(footer);
+
+});
