@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://iloilodinagyangmarathon.com/</loc>
+    </url>
+
+    <!-- Event Information -->
+    <url>
+        <loc>https://iloilodinagyangmarathon.com/event.html</loc>
+    </url>
+
+    <!-- Registration Verification -->
+    <url>
+        <loc>https://iloilodinagyangmarathon.com/verify-registration.html</loc>
+    </url>
+
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://iloilodinagyangmarathon.com/privacy-policy.html</loc>
+    </url>
+
+</urlset>
