@@ -1,6 +1,6 @@
-/*====================================
-  LOAD REUSABLE LAYOUT
-====================================*/
+/*====================================*
+ * LOAD REUSABLE LAYOUT
+ *====================================*/
 
 async function loadComponent(id, file) {
 
@@ -40,16 +40,63 @@ async function initLayout() {
 
 initLayout();
 
-/*====================================
-  PRIVACY / COOKIE NOTICE
-====================================*/
+
+/*====================================*
+ * GOOGLE ANALYTICS 4
+ *====================================*/
+
+function loadGoogleAnalytics() {
+
+    // Prevent Analytics from being loaded more than once
+    if (window.googleAnalyticsLoaded) {
+        return;
+    }
+
+    window.googleAnalyticsLoaded = true;
+
+    // Google Analytics script
+    const analyticsScript = document.createElement("script");
+
+    analyticsScript.async = true;
+
+    analyticsScript.src =
+        "https://www.googletagmanager.com/gtag/js?id=G-QZVT56SZ94";
+
+    document.head.appendChild(analyticsScript);
+
+
+    // Initialize Google Analytics
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    window.gtag = gtag;
+
+
+    gtag("js", new Date());
+
+    gtag("config", "G-QZVT56SZ94");
+
+}
+
+
+/*====================================*
+ * PRIVACY / COOKIE NOTICE
+ *====================================*/
 
 document.addEventListener("DOMContentLoaded", function () {
 
     // Check if visitor has already accepted
     if (localStorage.getItem("privacyAccepted") === "true") {
+
+        // Visitor already accepted privacy notice
+        loadGoogleAnalytics();
+
         return;
     }
+
 
     // Create privacy banner
     const banner = document.createElement("div");
@@ -80,13 +127,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Accept button
-    const acceptButton = document.getElementById("privacyAcceptBtn");
+    const acceptButton =
+        document.getElementById("privacyAcceptBtn");
+
 
     acceptButton.addEventListener("click", function () {
 
+        // Save visitor's choice
         localStorage.setItem("privacyAccepted", "true");
 
+        // Start Google Analytics
+        loadGoogleAnalytics();
+
+        // Hide privacy banner
         banner.classList.add("privacy-cookie-hide");
+
 
         setTimeout(function () {
 
@@ -98,42 +153,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-/*====================================
-HIDE FLOATING COUNTDOWN WHEN FOOTER
-IS VISIBLE
-====================================*/
+
+/*====================================*
+ * HIDE FLOATING COUNTDOWN WHEN FOOTER
+ * IS VISIBLE
+ *====================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const floatingCountdown = document.querySelector(".floating-countdown");
-    const footer = document.querySelector(".footer");
+    const floatingCountdown =
+        document.querySelector(".floating-countdown");
+
+    const footer =
+        document.querySelector(".footer");
+
 
     if (!floatingCountdown || !footer) return;
 
-    const footerObserver = new IntersectionObserver(
-        (entries) => {
 
-            entries.forEach((entry) => {
+    const footerObserver =
+        new IntersectionObserver(
 
-                if (entry.isIntersecting) {
+            (entries) => {
 
-                    // Footer is visible
-                    floatingCountdown.classList.add("countdown-hidden");
+                entries.forEach((entry) => {
 
-                } else {
+                    if (entry.isIntersecting) {
 
-                    // Footer is no longer visible
-                    floatingCountdown.classList.remove("countdown-hidden");
+                        // Footer is visible
+                        floatingCountdown.classList.add(
+                            "countdown-hidden"
+                        );
 
-                }
+                    } else {
 
-            });
+                        // Footer is no longer visible
+                        floatingCountdown.classList.remove(
+                            "countdown-hidden"
+                        );
 
-        },
-        {
-            threshold: 0.05
-        }
-    );
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.05
+            }
+
+        );
+
 
     footerObserver.observe(footer);
 
