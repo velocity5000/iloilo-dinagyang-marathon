@@ -4,39 +4,130 @@
 
 async function loadComponent(id, file) {
 
-    const response = await fetch(file);
+    const element =
+        document.getElementById(id);
 
-    const html = await response.text();
 
-    document.getElementById(id).innerHTML = html;
+    // If this page does not contain
+    // the requested placeholder,
+    // simply skip it.
+
+    if (!element) {
+
+        return;
+
+    }
+
+
+    const response =
+        await fetch(file);
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            `Unable to load component: ${file}`
+        );
+
+    }
+
+
+    const html =
+        await response.text();
+
+
+    element.innerHTML =
+        html;
 
 }
 
+
 async function initLayout() {
 
-    await loadComponent("header-placeholder", "components/header.html");
+    // ==========================
+    // HEADER
+    // ==========================
 
-    await loadComponent("footer-placeholder", "components/footer.html");
+    await loadComponent(
+        "header-placeholder",
+        "components/header.html"
+    );
 
-    await loadComponent("floating-placeholder", "components/floating-countdown.html");
 
-    // Load the site's JavaScript
-    const script = document.createElement("script");
+    // ==========================
+    // FOOTER
+    // ==========================
 
-    script.src = "js/script.js";
+    await loadComponent(
+        "footer-placeholder",
+        "components/footer.html"
+    );
+
+
+    // ==========================
+    // FLOATING COUNTDOWN
+    // ==========================
+
+    /*
+        Some pages intentionally do not
+        use the floating countdown.
+
+        loadComponent() will simply skip
+        it when the placeholder doesn't
+        exist.
+    */
+
+    await loadComponent(
+        "floating-placeholder",
+        "components/floating-countdown.html"
+    );
+
+
+    // ==========================
+    // LOAD SITE JAVASCRIPT
+    // ==========================
+
+    const script =
+        document.createElement("script");
+
+
+    script.src =
+        "js/script.js";
+
 
     script.onload = () => {
 
-        // Initialize Lucide icons after everything is loaded
-        if (window.lucide) {
+        // Initialize Lucide icons
+        // after everything is loaded
+
+        if (
+            window.lucide &&
+            typeof lucide.createIcons ===
+                "function"
+        ) {
+
             lucide.createIcons();
+
         }
 
     };
 
-    document.body.appendChild(script);
+
+    script.onerror = () => {
+
+        console.error(
+            "Unable to load js/script.js"
+        );
+
+    };
+
+
+    document.body.appendChild(
+        script
+    );
 
 }
+
 
 initLayout();
 
@@ -47,37 +138,68 @@ initLayout();
 
 function loadGoogleAnalytics() {
 
-    // Prevent Analytics from being loaded more than once
-    if (window.googleAnalyticsLoaded) {
+    // Prevent Analytics from being
+    // loaded more than once
+
+    if (
+        window.googleAnalyticsLoaded
+    ) {
+
         return;
+
     }
 
-    window.googleAnalyticsLoaded = true;
+
+    window.googleAnalyticsLoaded =
+        true;
+
 
     // Google Analytics script
-    const analyticsScript = document.createElement("script");
 
-    analyticsScript.async = true;
+    const analyticsScript =
+        document.createElement("script");
+
+
+    analyticsScript.async =
+        true;
+
 
     analyticsScript.src =
         "https://www.googletagmanager.com/gtag/js?id=G-QZVT56SZ94";
 
-    document.head.appendChild(analyticsScript);
+
+    document.head.appendChild(
+        analyticsScript
+    );
 
 
     // Initialize Google Analytics
-    window.dataLayer = window.dataLayer || [];
+
+    window.dataLayer =
+        window.dataLayer || [];
+
 
     function gtag() {
+
         dataLayer.push(arguments);
+
     }
 
-    window.gtag = gtag;
+
+    window.gtag =
+        gtag;
 
 
-    gtag("js", new Date());
+    gtag(
+        "js",
+        new Date()
+    );
 
-    gtag("config", "G-QZVT56SZ94");
+
+    gtag(
+        "config",
+        "G-QZVT56SZ94"
+    );
 
 }
 
@@ -86,72 +208,120 @@ function loadGoogleAnalytics() {
  * PRIVACY / COOKIE NOTICE
  *====================================*/
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    // Check if visitor has already accepted
-    if (localStorage.getItem("privacyAccepted") === "true") {
 
-        // Visitor already accepted privacy notice
-        loadGoogleAnalytics();
+        // Check if visitor has
+        // already accepted
 
-        return;
+        if (
+            localStorage.getItem(
+                "privacyAccepted"
+            ) === "true"
+        ) {
+
+            loadGoogleAnalytics();
+
+            return;
+
+        }
+
+
+        // Create privacy banner
+
+        const banner =
+            document.createElement("div");
+
+
+        banner.className =
+            "privacy-cookie-banner";
+
+
+        banner.innerHTML = `
+
+            <div class="privacy-cookie-content">
+
+                <p>
+
+                    We use cookies and similar
+                    technologies to improve your
+                    experience and understand how
+                    visitors use our website.
+
+                    <a href="privacy-policy.html">
+
+                        Read our Privacy Policy
+
+                    </a>
+
+                </p>
+
+
+                <button id="privacyAcceptBtn">
+
+                    Accept
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        document.body.appendChild(
+            banner
+        );
+
+
+        // Accept button
+
+        const acceptButton =
+            document.getElementById(
+                "privacyAcceptBtn"
+            );
+
+
+        acceptButton.addEventListener(
+            "click",
+            function () {
+
+
+                // Save visitor's choice
+
+                localStorage.setItem(
+                    "privacyAccepted",
+                    "true"
+                );
+
+
+                // Start Google Analytics
+
+                loadGoogleAnalytics();
+
+
+                // Hide privacy banner
+
+                banner.classList.add(
+                    "privacy-cookie-hide"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        banner.remove();
+
+                    },
+                    400
+                );
+
+            }
+        );
+
     }
-
-
-    // Create privacy banner
-    const banner = document.createElement("div");
-
-    banner.className = "privacy-cookie-banner";
-
-    banner.innerHTML = `
-
-        <div class="privacy-cookie-content">
-
-            <p>
-                We use cookies and similar technologies to improve your
-                experience and understand how visitors use our website.
-                <a href="privacy-policy.html">
-                    Read our Privacy Policy
-                </a>
-            </p>
-
-            <button id="privacyAcceptBtn">
-                Accept
-            </button>
-
-        </div>
-
-    `;
-
-    document.body.appendChild(banner);
-
-
-    // Accept button
-    const acceptButton =
-        document.getElementById("privacyAcceptBtn");
-
-
-    acceptButton.addEventListener("click", function () {
-
-        // Save visitor's choice
-        localStorage.setItem("privacyAccepted", "true");
-
-        // Start Google Analytics
-        loadGoogleAnalytics();
-
-        // Hide privacy banner
-        banner.classList.add("privacy-cookie-hide");
-
-
-        setTimeout(function () {
-
-            banner.remove();
-
-        }, 400);
-
-    });
-
-});
+);
 
 
 /*====================================*
@@ -159,52 +329,85 @@ document.addEventListener("DOMContentLoaded", function () {
  * IS VISIBLE
  *====================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    const floatingCountdown =
-        document.querySelector(".floating-countdown");
-
-    const footer =
-        document.querySelector(".footer");
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
 
-    if (!floatingCountdown || !footer) return;
+        const floatingCountdown =
+            document.querySelector(
+                ".floating-countdown"
+            );
 
 
-    const footerObserver =
-        new IntersectionObserver(
+        const footer =
+            document.querySelector(
+                ".footer"
+            );
 
-            (entries) => {
 
-                entries.forEach((entry) => {
+        // This page may intentionally
+        // not have a floating countdown.
 
-                    if (entry.isIntersecting) {
+        if (
+            !floatingCountdown ||
+            !footer
+        ) {
 
-                        // Footer is visible
-                        floatingCountdown.classList.add(
-                            "countdown-hidden"
-                        );
+            return;
 
-                    } else {
+        }
 
-                        // Footer is no longer visible
-                        floatingCountdown.classList.remove(
-                            "countdown-hidden"
-                        );
 
-                    }
+        const footerObserver =
+            new IntersectionObserver(
 
-                });
+                (entries) => {
 
-            },
 
-            {
-                threshold: 0.05
-            }
+                    entries.forEach(
+                        (entry) => {
 
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+
+                                // Footer is visible
+
+                                floatingCountdown.classList.add(
+                                    "countdown-hidden"
+                                );
+
+
+                            } else {
+
+
+                                // Footer is no longer visible
+
+                                floatingCountdown.classList.remove(
+                                    "countdown-hidden"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+
+                {
+                    threshold: 0.05
+                }
+
+            );
+
+
+        footerObserver.observe(
+            footer
         );
 
-
-    footerObserver.observe(footer);
-
-});
+    }
+);

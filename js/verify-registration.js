@@ -3,19 +3,29 @@
 // ==========================================
 
 const API_URL =
-    "https://script.google.com/macros/s/AKfycbznnAb6zcRk5UBz3gxLRLc7D6B5u01EkyKwNcfdWA2BKnCv5mnrIKxkfyl_m3ghf0pO_A/exec";
+    "https://script.google.com/macros/s/AKfycbxm_JENehg6TDahfYcgo_8D2YHwJp6Is_-6TbjsJMX-Yo25DrZB_2IwzPyuPFfKQab2/exec";
 
-const form = document.getElementById("verifyForm");
+const form =
+    document.getElementById("verifyForm");
 
-const btn = document.getElementById("verifyBtn");
+const btn =
+    document.getElementById("verifyBtn");
 
-const resultContainer = document.getElementById("resultContainer");
+const resultContainer =
+    document.getElementById("resultContainer");
+
+
+// ==========================================
+// FORM SUBMISSION
+// ==========================================
 
 form.addEventListener("submit", verifyRegistration);
+
 
 async function verifyRegistration(e) {
 
     e.preventDefault();
+
 
     const firstName =
         document.getElementById("firstName").value.trim();
@@ -26,258 +36,421 @@ async function verifyRegistration(e) {
     const email =
         document.getElementById("email").value.trim();
 
-    btn.disabled = true;
 
-    btn.innerHTML = "VERIFYING...";
+    // ==========================================
+    // BASIC VALIDATION
+    // ==========================================
+
+    if (!firstName || !lastName || !email) {
+
+        resultContainer.innerHTML =
+            errorCard(
+                "Please enter your First Name, Last Name, and Email Address."
+            );
+
+        return;
+    }
+
+
+    // ==========================================
+    // BUTTON LOADING STATE
+    // ==========================================
+
+    btn.disabled = true;
 
     btn.innerHTML =
         '<i class="fa-solid fa-spinner fa-spin"></i> VERIFYING...';
 
+
+    // Show loading card
+
+    resultContainer.innerHTML =
+        loadingCard();
+
+
     try {
 
-        const response = await fetch(
+        // ==========================================
+        // SEND REQUEST TO GOOGLE APPS SCRIPT
+        // ==========================================
 
-            `${API_URL}?firstname=${encodeURIComponent(firstName)}&lastname=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}`
+        const url =
+            `${API_URL}?firstname=${encodeURIComponent(firstName)}&lastname=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}`;
 
-        );
 
-        const data = await response.json();
+        const response =
+            await fetch(url);
+
+
+        const data =
+            await response.json();
+
+
+        // ==========================================
+        // SUCCESS
+        // ==========================================
 
         if (data.success) {
 
-            resultContainer.innerHTML = successCard(data);
+            resultContainer.innerHTML =
+                successCards(data.results);
+
 
             resultContainer.scrollIntoView({
+
                 behavior: "smooth",
+
                 block: "start"
+
             });
 
-        } else {
+        }
 
-            resultContainer.innerHTML = errorCard(data.message);
+
+        // ==========================================
+        // NO MATCH
+        // ==========================================
+
+        else {
+
+            resultContainer.innerHTML =
+                errorCard(data.message);
+
 
             resultContainer.scrollIntoView({
+
                 behavior: "smooth",
+
                 block: "start"
+
             });
 
         }
 
     }
 
+
     catch (error) {
 
+        console.error(
+            "Registration verification error:",
+            error
+        );
+
+
         resultContainer.innerHTML =
-            errorCard("Unable to connect to the registration server.");
+            errorCard(
+                "Unable to connect to the registration server. Please try again later."
+            );
 
     }
 
+
+    // ==========================================
+    // RESTORE BUTTON
+    // ==========================================
+
     btn.disabled = false;
 
-    btn.innerHTML = "VERIFY REGISTRATION";
+    btn.innerHTML =
+        "VERIFY REGISTRATION";
 
 }
+
+
+// ==========================================
+// LOADING CARD
+// ==========================================
 
 function loadingCard() {
 
     return `
 
-<div class="result-card">
+        <div class="result-card">
 
-<div class="loading-spinner"></div>
+            <div class="loading-spinner"></div>
 
-<h2 class="result-title">
+            <h2 class="result-title">
 
-Verifying your registration...
+                Verifying your registration...
 
-</h2>
+            </h2>
 
-<p class="result-note">
+            <p class="result-note">
 
-This usually takes only a few seconds.
+                This usually takes only a few seconds.
 
-</p>
+            </p>
 
-</div>
+        </div>
 
-`;
+    `;
 
 }
 
-function successCard(data) {
 
-    const statusClass =
-        data.registrationStatus === "CONFIRMED"
+// ==========================================
+// SUCCESS CARDS
+// ==========================================
 
-            ? "status-confirmed"
+function successCards(results) {
 
-            : "status-pending";
+    if (!results || results.length === 0) {
 
-    return `
+        return errorCard(
+            "No registration records were found."
+        );
 
-<div class="result-card">
+    }
 
-<h2 class="result-title">
 
-Registration Verified
+    let cardsHTML = `
 
-</h2>
+        <div class="verification-results">
 
-<div class="result-item">
+            <div class="results-heading">
 
-<div class="result-label">
+                <p class="section-label">
 
-Participant
+                    REGISTRATION FOUND
 
-</div>
+                </p>
 
-<div class="result-value">
+                <h2 class="section-title">
 
-${data.firstName} ${data.lastName}
+                    Registration Verified
 
-</div>
+                </h2>
 
-</div>
+                <p class="section-description">
 
-<div class="result-item">
+                    We found ${results.length}
+                    exact registration${results.length > 1 ? "s" : ""} matching
+                    the information you entered.
 
-<div class="result-label">
+                </p>
 
-Distance
+            </div>
 
-</div>
+    `;
 
-<div class="result-value">
 
-${data.distance}
+    // ==========================================
+    // CREATE ONE CARD FOR EACH MATCH
+    // ==========================================
 
-</div>
+    results.forEach((participant, index) => {
 
-</div>
+        const statusClass =
+            participant.registrationStatus === "CONFIRMED"
 
-<div class="result-item">
+                ? "status-confirmed"
 
-<div class="result-label">
+                : "status-pending";
 
-Category
 
-</div>
+        cardsHTML += `
 
-<div class="result-value">
+            <div class="result-card">
 
-${data.category}
+                <div class="result-card-number">
 
-</div>
+                    ${String(index + 1).padStart(2, "0")}
 
-</div>
+                </div>
 
-<div class="result-item">
 
-<div class="result-label">
+                <h3 class="result-title">
 
-Registration Status
+                    ${participant.firstName}
+                    ${participant.lastName}
 
-</div>
+                </h3>
 
-<div class="result-value ${statusClass}">
 
-${data.registrationStatus}
+                <div class="result-item">
 
-</div>
+                    <div class="result-label">
 
-</div>
+                        Distance
 
-<div class="result-note">
+                    </div>
 
-If you notice any discrepancies with the information displayed above, please contact
+                    <div class="result-value">
 
-<br><br>
+                        ${participant.distance}
 
-<a href="mailto:iloilodinagyangmarathon@gmail.com">
+                    </div>
 
-iloilodinagyangmarathon@gmail.com
+                </div>
 
-</a>
 
-</div>
+                <div class="result-item">
 
-<button
+                    <div class="result-label">
 
-class="search-again"
+                        Category
 
-onclick="resetSearch()">
+                    </div>
 
-VERIFY ANOTHER REGISTRATION
+                    <div class="result-value">
 
-</button>
+                        ${participant.category}
 
-</div>
+                    </div>
 
-`;
+                </div>
+
+
+                <div class="result-item">
+
+                    <div class="result-label">
+
+                        Registration Status
+
+                    </div>
+
+                    <div class="result-value ${statusClass}">
+
+                        ${participant.registrationStatus}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    // ==========================================
+    // FOOTER / DISCLAIMER
+    // ==========================================
+
+    cardsHTML += `
+
+            <div class="verification-note">
+
+                If you notice any discrepancies with the
+                information displayed above, please contact us.
+
+                <br><br>
+
+                <a href="mailto:iloilodinagyangmarathon@gmail.com">
+
+                    iloilodinagyangmarathon@gmail.com
+
+                </a>
+
+            </div>
+
+
+            <button
+
+                class="search-again"
+
+                onclick="resetSearch()">
+
+                VERIFY ANOTHER REGISTRATION
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    return cardsHTML;
 
 }
+
+
+// ==========================================
+// ERROR CARD
+// ==========================================
 
 function errorCard(message) {
 
     return `
 
-<div class="result-card">
+        <div class="result-card">
 
-<h2 class="result-title">
+            <h2 class="result-title">
 
-Unable to Verify Registration
+                Unable to Verify Registration
 
-</h2>
+            </h2>
 
-<p class="result-note">
+            <p class="result-note">
 
-${message}
+                ${message}
 
-<br><br>
+                <br><br>
 
-Please verify the information entered.
+                Please verify that your First Name,
+                Last Name, and Email Address match
+                the information used during registration.
 
-<br><br>
+                <br><br>
 
-If you still believe this is an error, please contact
+                If you still believe this is an error,
+                please contact us.
 
-<br><br>
+                <br><br>
 
-<a href="mailto:iloilodinagyangmarathon@gmail.com">
+                <a href="mailto:iloilodinagyangmarathon@gmail.com">
 
-iloilodinagyangmarathon@gmail.com
+                    iloilodinagyangmarathon@gmail.com
 
-</a>
+                </a>
 
-</p>
+            </p>
 
-<button
 
-class="search-again"
+            <button
 
-onclick="resetSearch()">
+                class="search-again"
 
-TRY AGAIN
+                onclick="resetSearch()">
 
-</button>
+                TRY AGAIN
 
-</div>
+            </button>
 
-`;
+        </div>
+
+    `;
 
 }
 
+
+// ==========================================
+// RESET SEARCH
+// ==========================================
+
 function resetSearch() {
 
-    document.getElementById("verifyForm").reset();
+    document
+        .getElementById("verifyForm")
+        .reset();
+
 
     resultContainer.innerHTML = "";
 
-    document.getElementById("firstName").focus();
+
+    document
+        .getElementById("firstName")
+        .focus();
+
 
     window.scrollTo({
 
-        top: document.querySelector(".verify-registration").offsetTop - 80,
+        top:
+            document
+                .querySelector(".verify-registration")
+                .offsetTop - 80,
 
         behavior: "smooth"
 
