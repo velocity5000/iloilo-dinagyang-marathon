@@ -12,6 +12,21 @@
         <loc>https://iloilodinagyangmarathon.com/event.html</loc>
     </url>
 
+    <!-- Heritage Run -->
+    <url>
+        <loc>https://iloilodinagyangmarathon.com/heritage-run.html</loc>
+    </url>
+
+    <!-- Volunteer -->
+    <url>
+        <loc>https://iloilodinagyangmarathon.com/volunteer.html</loc>
+    </url>
+
+    <!-- Sponsors -->
+    <url>
+        <loc>https://iloilodinagyangmarathon.com/sponsor.html</loc>
+    </url>
+
     <!-- Registration Verification -->
     <url>
         <loc>https://iloilodinagyangmarathon.com/verify-registration.html</loc>
