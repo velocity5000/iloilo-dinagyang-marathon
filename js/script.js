@@ -65,7 +65,7 @@ const countdown =
     document.getElementById("countdown");
 
 const deadline =
-    new Date("2026-08-31T23:59:59+08:00").getTime();
+    new Date("2027-01-17T00:00:00+08:00").getTime();
 
 
 function updateCountdown() {
