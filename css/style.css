@@ -22935,3 +22935,82 @@ WHEN FOOTER IS VISIBLE
     }
 
 }
+
+/* =========================================================
+   EVENT DESIGN REVEAL IMAGES
+========================================================= */
+.event-inclusion-visual-image {
+    padding: 18px;
+    background: linear-gradient(135deg, #ededf2, #f8f8fa);
+}
+
+.event-inclusion-visual-image::before,
+.event-inclusion-visual-image::after,
+.inclusion-card-visual-image::before,
+.inclusion-card-visual-image::after {
+    display: none;
+}
+
+.event-inclusion-visual-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+}
+
+.inclusion-card-visual-image {
+    padding: 14px;
+}
+
+.inclusion-card-visual-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+}
+
+/* Five overall podium places */
+.event-podium {
+    gap: 12px;
+}
+
+.podium-fourth .podium-block {
+    height: 75px;
+    border-top: 1px solid rgba(255, 255, 255, .12);
+}
+
+.podium-fifth .podium-block {
+    height: 55px;
+    border-top: 1px solid rgba(255, 255, 255, .10);
+}
+
+@media (max-width: 760px) {
+    .event-podium {
+        gap: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .podium-place {
+        width: 20%;
+        min-width: 0;
+    }
+
+    .podium-place p {
+        font-size: 5px;
+        letter-spacing: .6px;
+        line-height: 1.35;
+        min-height: 22px;
+    }
+
+    .podium-block {
+        font-size: clamp(24px, 6vw, 38px);
+    }
+
+    .podium-fourth .podium-block { height: 62px; }
+    .podium-fifth .podium-block { height: 48px; }
+}
